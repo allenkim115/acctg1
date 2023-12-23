@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="shortcut icon" href="accounts.png">
+    <title>Adjusting Entry</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Raleway&display=swap');
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            
+        }
+
+        /**.container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }*/
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #666;
+        }
+
+           .sidebar {
+            height: 100vh;
+            width: 250px;
+            background: #1B1212;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-top: 20px;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        .site-title {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 25px;
+            font-weight: 800;
+            color: #fff;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            text-align: left;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 30px;
+            padding: 10px;
+            margin-bottom: 30px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a .icon {
+            margin-right: 10px;
+        }
+
+        .navbar a:hover {
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover .icon {
+            color: black;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 5px;
+            text-decoration: none;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+        #about {
+            background-color: #f2f2f2;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .icon {
+            font-size: 24px;
+            margin-right: 5px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+
+        .table-container table {
+            min-width: 800px;
+        }
+
+        .table-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .table-container td:first-child,
+        .table-container th:first-child {
+            padding-left: 20px;
+        }
+
+        .table-container td:last-child,
+        .table-container th:last-child {
+            padding-right: 20px;
+        }
+        .navbar a:hover {
+          background-color: white;
+          color: black;
+          border-radius: 5px;
+        }
+
+        .navbar a:hover .icon {
+          color: black;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 5px;
+            text-decoration: none;
+        }
+        .container{
+                margin-left: 270px;
+            }
+        .navbar .active{
+             color: #212122;
+             background-color:#F8EEEC ;
+             border-radius: 10px;
+             font-weight: 800;
+            }
+        .sidebar {
+            height: 100vh;
+            width: 250px;
+            background:#1B1212;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 100;
+            overflow-y: auto; /* Add this line to enable vertical scrolling */
+        }
+
+        /* Add a max-height if you want to limit the height of the sidebar */
+        /* .sidebar {
+            max-height: 100vh;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div>
+            <img src="fund.png" alt="File Logo" class="logo">
+            <h1 class="site-title">ACCOUNTING</h1>
+        </div>
+        <div class="navbar">
+            <a href="index.html"><i class='bx bx-home icon'></i>Home</a>
+            <a href="general.html"><i class='bx bx-book icon'></i>General Journal</a>
+            <a class="active" href="Adjusting.html"><i class='bx bx-adjust icon'></i>Adjusting Entry</a>
+            <a href="ledger.html"><i class='bx bx-credit-card icon'></i>General Ledger</a>
+            <a href="worksheet.html"><i class='bx bx-file icon'></i>Worksheet</a>
+        </div>
+        <div class="social-icons">
+            <!-- Add your social icons here -->
+        </div>
+    </div>
+     <script>
+        function toggleNavbar() {
+            var navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+    <section id="adjusting-entries">
+        <div class="container">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="5">Adjusting Entry</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Particulars</th>
+                        <th>Account No.</th>
+                        <th>Dr</th>
+                        <th>Cr</th>
+                    </tr>
+                    <tr>
+                        <td>2018 Dec. 31</td>
+                        <td>a). Supplies Expense</td>
+                        <td>520</td>
+                        <td>₱2,500.00 </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Supplies</td>
+                        <td>140</td>
+                        <td></td>
+                        <td>₱2,500.00 </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>To record expired portion of supplies.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2018 Dec. 31</td>
+                        <td>b). Salaries Expense</td>
+                        <td>510</td>
+                        <td>₱1,800.00 </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Salaries Payable</td>
+                        <td>220</td>
+                        <td></td>
+                        <td>₱1,800.00 </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>To record accrued salaries for the month.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2018 Dec. 31</td>
+                        <td>c). Depreciation Expense</td>
+                        <td>540</td>
+                        <td>₱800.00 </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Accumulated Depreciation</td>
+                        <td>155</td>
+                        <td></td>
+                        <td>₱800.00 </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>To record depreciation for December.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2018 Dec. 31</td>
+                        <td>d). Fees Receivable</td>
+                        <td>130</td>
+                        <td>₱10,000.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Consulting Revenues</td>
+                        <td>410</td>
+                        <td></td>
+                        <td>₱10,000.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>To record billed for December.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="closing-entry">
+        <div class="container">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="5">Closing Entry</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Account Titles/ Explanation</th>
+                        <th>Account No.</th>
+                        <th>Dr</th>
+                        <th>Cr</th>
+                    </tr>
+                    <tr>
+                        <td>2018 Dec. 31</td>
+                        <td>Consulting Revenues</td>
+                        <td>410</td>
+                        <td>₱78,000.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Income & Expense Summary</td>
+                        <td>330</td>
+                        <td></td>
+                        <td>₱78,000.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>to close revenue account.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Income & Expense Summary</td>
+                        <td>330</td>
+                        <td>₱25,100.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Salaries Expense</td>
+                        <td>510</td>
+                        <td></td>
+                        <td>₱13,800.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Supplies Expense</td>
+                        <td>520</td>
+                        <td></td>
+                        <td>₱2,500.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Rent Expense</td>
+                        <td>530</td>
+                        <td></td>
+                        <td>₱8,000.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Depreciation Expense</td>
+                        <td>540</td>
+                        <td></td>
+                        <td>₱800.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>To close expense accounts.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Income & Expense Summary</td>
+                        <td>330</td>
+                        <td>₱52,900.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Detoya, Capital</td>
+                        <td>310</td>
+                        <td></td>
+                        <td>₱52,900.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>To close income summary to capital.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Detoya, Capital</td>
+                        <td>310</td>
+                        <td>₱12,000.00</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Detoya, Drawing</td>
+                        <td>320</td>
+                        <td></td>
+                        <td>₱12,000.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><b>To close withdrawals to capital.</b></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <thead>
+                        <tr>
+                            <th colspan="6"></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </section>
+     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get the current page URL
+            var currentPage = window.location.pathname;
+
+            // Get the "navbar" element
+            var navbar = document.querySelector('.navbar');
+
+            // Get all the links inside the navbar
+            var links = navbar.querySelectorAll('a');
+
+            // Loop through each link and check if its href matches the current page
+            links.forEach(function (link) {
+                if (link.getAttribute('href') === currentPage) {
+                    // If there is a match, add the "active" class to the link
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+    <script>
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>
